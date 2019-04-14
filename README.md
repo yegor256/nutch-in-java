@@ -12,6 +12,6 @@ Then, you compile it and run:
 $ mvn
 ```
 
-The results will be saved into `target/results`
+The results will be saved into `target/dump`.
 
 Should work.
