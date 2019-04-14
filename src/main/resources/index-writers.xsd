@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2019 Yegor Bugayenko
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://lucene.apache.org/nutch" targetNamespace="http://lucene.apache.org/nutch" elementFormDefault="qualified">
+  <xs:element name="writers">
+    <xs:annotation>
+      <xs:documentation>
+        Root tag of index-writers.xml document. It's a wrapper for the all index writers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="writer" type="writerType" maxOccurs="unbounded" minOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              Contains all the configuration of a particular index writer.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="writerType">
+    <xs:sequence>
+      <xs:element type="parametersType" name="parameters" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This tag contains all the parameters that will be passed to the index writer implementation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="mappingType" name="mapping" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            It's a wrapper for the allowed actions over a document before it's indexed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Writer's ID.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute type="xs:string" name="class" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The class of the index writer implementation which will be used.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="parametersType">
+    <xs:sequence>
+      <xs:element type="parameterType" name="param" maxOccurs="unbounded" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            One single parameter that will be pass to the index writer implementation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parameterType">
+    <xs:attribute type="xs:string" name="name" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Parameter's name. It is used to identify the parameter.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute type="xs:string" name="value" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Parameter's value.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="mappingType">
+    <xs:sequence>
+      <xs:element type="fieldsType" name="copy" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Action of copy fields. Multiple comma-separated targets can be specified.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="fieldsType" name="rename" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Action of rename fields.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="remove" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Action of remove fields.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="field" maxOccurs="unbounded" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>
+                  One single field that will be mapped.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="source" use="required">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Field's name before it's mapped.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldsType">
+    <xs:sequence>
+      <xs:element type="fieldType" name="field" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            One single field that will be mapped.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="source" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Field's name before it's mapped.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" name="dest" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              Field's name after the action is applied.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
