@@ -1,4 +1,6 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Nutch_logo.svg" style="height:64px"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Nutch_logo.svg" height="64px"/>
+
+[![Build Status](https://travis-ci.org/yegor256/nutch-in-java.svg?branch=master)](https://travis-ci.org/yegor256/nutch-in-java)
 
 Apache Nutch without command line.
 
