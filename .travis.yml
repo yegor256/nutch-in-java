@@ -1,0 +1,16 @@
+language: java
+sudo: false
+cache:
+  directories:
+    - $HOME/.m2
+script:
+  - set -e
+  - mvn clean install -Pqulice -Pjacoco --errors --batch-mode
+install:
+  - gem install xcop
+env:
+  global:
+    - MAVEN_OPTS="-Xmx256m"
+    - JAVA_OPTS="-Xmx256m"
+jdk:
+  - oraclejdk8
