@@ -28,6 +28,8 @@
 # whitespace. Order, in which suffixes are specified, doesn't matter. Blank
 # lines and comments (#) are allowed.
 
+# block everything
 -
+
+# allow only documents with a text/html mimetype
 text/html
-image/*

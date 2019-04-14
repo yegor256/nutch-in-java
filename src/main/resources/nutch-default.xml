@@ -28,8 +28,8 @@ SOFTWARE.
   <property>
     <name>store.ip.address</name>
     <value>false</value>
-    <description>Enables us to capture the specific IP address
-  (InetSocketAddress) of the host which we connect to via
+    <description>Enables us to capture the specific IP address 
+  (InetSocketAddress) of the host which we connect to via 
   the given protocol. Currently supported is protocol-ftp and
   http.
   </description>
@@ -78,7 +78,7 @@ SOFTWARE.
   <property>
     <name>http.agent.name</name>
     <value/>
-    <description>HTTP 'User-Agent' request header. MUST NOT be empty -
+    <description>HTTP 'User-Agent' request header. MUST NOT be empty - 
   please set this to a single word uniquely related to your organization.
 
   NOTE: You should also check other related properties:
@@ -97,22 +97,22 @@ SOFTWARE.
     <name>http.robots.agents</name>
     <value/>
     <description>Any other agents, apart from 'http.agent.name', that the robots
-  parser would look for in robots.txt. Multiple agents can be provided using
+  parser would look for in robots.txt. Multiple agents can be provided using 
   comma as a delimiter. eg. mybot,foo-spider,bar-crawler
-
-  The ordering of agents does NOT matter and the robots parser would make
-  decision based on the agent which matches first to the robots rules.
-  Also, there is NO need to add a wildcard (ie. "*") to this string as the
-  robots parser would smartly take care of a no-match situation.
-
-  If no value is specified, by default HTTP agent (ie. 'http.agent.name')
-  would be used for user agent matching by the robots parser.
+  
+  The ordering of agents does NOT matter and the robots parser would make 
+  decision based on the agent which matches first to the robots rules.  
+  Also, there is NO need to add a wildcard (ie. "*") to this string as the 
+  robots parser would smartly take care of a no-match situation. 
+    
+  If no value is specified, by default HTTP agent (ie. 'http.agent.name') 
+  would be used for user agent matching by the robots parser. 
   </description>
   </property>
   <property>
     <name>http.robot.rules.whitelist</name>
     <value/>
-    <description>Comma separated list of hostnames or IP addresses to ignore
+    <description>Comma separated list of hostnames or IP addresses to ignore 
   robot rules parsing for. Use with care and only if you are explicitly
   allowed by the site owner to ignore the site's robots.txt!
   </description>
@@ -135,7 +135,7 @@ SOFTWARE.
   <property>
     <name>http.agent.url</name>
     <value/>
-    <description>A URL to advertise in the User-Agent header.  This will
+    <description>A URL to advertise in the User-Agent header.  This will 
    appear in parenthesis after the agent name. Custom dictates that this
    should be a URL of a page explaining the purpose and behavior of this
    crawler.
@@ -152,7 +152,7 @@ SOFTWARE.
   <property>
     <name>http.agent.version</name>
     <value>Nutch-1.15</value>
-    <description>A version string to advertise in the User-Agent
+    <description>A version string to advertise in the User-Agent 
    header.</description>
   </property>
   <property>
@@ -286,7 +286,7 @@ SOFTWARE.
   <property>
     <name>http.proxy.exception.list</name>
     <value/>
-    <description>A comma separated list of hosts that don't use the proxy
+    <description>A comma separated list of hosts that don't use the proxy 
   (e.g. intranets). Example: www.apache.org</description>
   </property>
   <property>
@@ -349,8 +349,8 @@ SOFTWARE.
   <property>
     <name>http.store.responsetime</name>
     <value>true</value>
-    <description>Enables us to record the response time of the
-  host which is the time period between start connection to end
+    <description>Enables us to record the response time of the 
+  host which is the time period between start connection to end 
   connection of a pages host. The response time in milliseconds
   is stored in CrawlDb in CrawlDatum's meta data under key "_rs_"
   </description>
@@ -452,7 +452,7 @@ SOFTWARE.
     <description>The implementation of fetch schedule. DefaultFetchSchedule simply
   adds the original fetchInterval to the last fetch time, regardless of
   page changes, whereas AdaptiveFetchSchedule (see below) tries to adapt
-  to the rate at which a given page is changed.
+  to the rate at which a given page is changed. 
   </description>
   </property>
   <property>
@@ -513,7 +513,7 @@ SOFTWARE.
     <name>db.preserve.backup</name>
     <value>true</value>
     <description>If true, updatedb will keep a backup of the previous CrawlDB
-  version in the old directory. In case of disaster, one can rename old to
+  version in the old directory. In case of disaster, one can rename old to 
   current and restore the CrawlDB to its previous state.
   </description>
   </property>
@@ -552,8 +552,8 @@ SOFTWARE.
   <property>
     <name>db.update.max.inlinks</name>
     <value>10000</value>
-    <description>Maximum number of inlinks to take into account when updating
-  a URL score in the crawlDB. Only the best scoring inlinks are kept.
+    <description>Maximum number of inlinks to take into account when updating 
+  a URL score in the crawlDB. Only the best scoring inlinks are kept. 
   </description>
   </property>
   <property>
@@ -567,7 +567,7 @@ SOFTWARE.
   </property>
   <property>
     <name>db.ignore.external.links</name>
-    <value>true</value>
+    <value>false</value>
     <description>If true, outlinks leading from a page to external hosts or domain
   will be ignored. This is an effective way to limit the crawl to include
   only initially injected hosts or domains, without creating complex URLFilters.
@@ -585,7 +585,7 @@ SOFTWARE.
   </property>
   <property>
     <name>db.ignore.external.links.mode</name>
-    <value>byDomain</value>
+    <value>byHost</value>
     <description>Alternative value is byDomain</description>
   </property>
   <property>
@@ -667,7 +667,7 @@ SOFTWARE.
     <name>db.parsemeta.to.crawldb</name>
     <value/>
     <description>Comma-separated list of parse metadata keys to transfer to the crawldb (NUTCH-779).
-   Assuming for instance that the languageidentifier plugin is enabled, setting the value to 'lang'
+   Assuming for instance that the languageidentifier plugin is enabled, setting the value to 'lang' 
    will copy both the key 'lang' and its value to the corresponding entry in the crawldb.
   </description>
   </property>
@@ -754,7 +754,7 @@ SOFTWARE.
     <name>generate.count.mode</name>
     <value>host</value>
     <description>Determines how the URLs are counted for generator.max.count.
-  Default value is 'host' but can be 'domain'. Note that we do not count
+  Default value is 'host' but can be 'domain'. Note that we do not count 
   per IP in the new version of the Generator.
   </description>
   </property>
@@ -805,17 +805,17 @@ SOFTWARE.
   <property>
     <name>partition.url.mode</name>
     <value>byHost</value>
-    <description>Determines how to partition URLs. Default value is 'byHost',
-  also takes 'byDomain' or 'byIP'.
+    <description>Determines how to partition URLs. Default value is 'byHost', 
+  also takes 'byDomain' or 'byIP'. 
   </description>
   </property>
   <property>
     <name>crawl.gen.delay</name>
     <value>604800000</value>
     <description>
-   This value, expressed in milliseconds, defines how long we should keep the lock on records
-   in CrawlDb that were just selected for fetching. If these records are not updated
-   in the meantime, the lock is canceled, i.e. they become eligible for selecting.
+   This value, expressed in milliseconds, defines how long we should keep the lock on records 
+   in CrawlDb that were just selected for fetching. If these records are not updated 
+   in the meantime, the lock is canceled, i.e. they become eligible for selecting. 
    Default value of this is 7 days (604800000 ms).
   </description>
   </property>
@@ -823,16 +823,16 @@ SOFTWARE.
   <property>
     <name>fetcher.server.delay</name>
     <value>5.0</value>
-    <description>The number of seconds the fetcher will delay between
+    <description>The number of seconds the fetcher will delay between 
    successive requests to the same server. Note that this might get
-   overridden by a Crawl-Delay from a robots.txt and is used ONLY if
+   overridden by a Crawl-Delay from a robots.txt and is used ONLY if 
    fetcher.threads.per.queue is set to 1.
    </description>
   </property>
   <property>
     <name>fetcher.server.min.delay</name>
     <value>0.0</value>
-    <description>The minimum number of seconds the fetcher will delay between
+    <description>The minimum number of seconds the fetcher will delay between 
   successive requests to the same server. This value is applicable ONLY
   if fetcher.threads.per.queue is greater than 1 (i.e. the host blocking
   is turned off).</description>
@@ -862,18 +862,18 @@ SOFTWARE.
     <name>fetcher.threads.per.queue</name>
     <value>1</value>
     <description>This number is the maximum number of threads that
-    should be allowed to access a queue at one time. Setting it to
+    should be allowed to access a queue at one time. Setting it to 
     a value &gt; 1 will cause the Crawl-Delay value from robots.txt to
     be ignored and the value of fetcher.server.min.delay to be used
-    as a delay between successive requests to the same server instead
+    as a delay between successive requests to the same server instead 
     of fetcher.server.delay.
    </description>
   </property>
   <property>
     <name>fetcher.queue.mode</name>
     <value>byHost</value>
-    <description>Determines how to put URLs into queues. Default value is 'byHost',
-  also takes 'byDomain' or 'byIP'.
+    <description>Determines how to put URLs into queues. Default value is 'byHost', 
+  also takes 'byDomain' or 'byIP'. 
   </description>
   </property>
   <property>
@@ -896,7 +896,7 @@ SOFTWARE.
     <name>fetcher.timelimit.mins</name>
     <value>-1</value>
     <description>This is the number of minutes allocated to the fetching.
-  Once this value is reached, any remaining entry from the input URL list is skipped
+  Once this value is reached, any remaining entry from the input URL list is skipped 
   and all active queues are emptied. The default value of -1 deactivates the time limit.
   </description>
   </property>
@@ -986,7 +986,7 @@ SOFTWARE.
   <property>
     <name>fetcher.bandwidth.target</name>
     <value>-1</value>
-    <description>Target bandwidth in kilobits per sec for each mapper instance. This is used to adjust the number of
+    <description>Target bandwidth in kilobits per sec for each mapper instance. This is used to adjust the number of 
   fetching threads automatically (up to fetcher.maxNum.threads). A value of -1 deactivates the functionality, in which case
   the number of fetching threads is fixed (see fetcher.threads.fetch).</description>
   </property>
@@ -1066,7 +1066,7 @@ SOFTWARE.
   in given order. For example, if this property has value:
   org.apache.nutch.indexer.basic.BasicIndexingFilter org.apache.nutch.indexer.more.MoreIndexingFilter
   then BasicIndexingFilter is applied first, and MoreIndexingFilter second.
-
+  
   Filter ordering might have impact on result if one filter depends on output of
   another filter.
   </description>
@@ -1146,7 +1146,7 @@ SOFTWARE.
   <name>mime.types.file</name>
   <value>tika-mimetypes.xml</value>
   <description>Name of file in CLASSPATH containing filename extension and
-  magic sequence to mime types mapping information. Overrides the default Tika config
+  magic sequence to mime types mapping information. Overrides the default Tika config 
   if specified.
   </description>
 </property>
@@ -1180,15 +1180,15 @@ SOFTWARE.
   include.  Any plugin not matching this expression is excluded.
   In any case you need at least include the nutch-extensionpoints plugin. By
   default Nutch includes crawling just HTML and plain text via HTTP,
-  and basic indexing and search plugins. In order to use HTTPS please enable
-  protocol-httpclient, but be aware of possible intermittent problems with the
+  and basic indexing and search plugins. In order to use HTTPS please enable 
+  protocol-httpclient, but be aware of possible intermittent problems with the 
   underlying commons-httpclient library. Set parsefilter-naivebayes for classification based focused crawler.
   </description>
   </property>
   <property>
     <name>plugin.excludes</name>
     <value/>
-    <description>Regular expression naming plugin directory names to exclude.
+    <description>Regular expression naming plugin directory names to exclude.  
   </description>
   </property>
   <property>
@@ -1200,7 +1200,7 @@ SOFTWARE.
     custom tags here will allow for their propagation into a pages outlinks, as
     well as allow for them to be included as part of an index.
     Values should be comma-delimited. ("tag1,tag2,tag3") Do not pad the tags with
-    white-space at their boundaries, if you are using anything earlier than Hadoop-0.21.
+    white-space at their boundaries, if you are using anything earlier than Hadoop-0.21. 
   </description>
   </property>
   <!-- parser properties -->
@@ -1250,8 +1250,8 @@ SOFTWARE.
   <property>
     <name>parser.html.outlinks.ignore_tags</name>
     <value/>
-    <description>Comma separated list of HTML tags, from which outlinks
-  shouldn't be extracted. Nutch takes links from: a, area, form, frame,
+    <description>Comma separated list of HTML tags, from which outlinks 
+  shouldn't be extracted. Nutch takes links from: a, area, form, frame, 
   iframe, script, link, img. If you add any of those tags here, it
   won't be taken. Default is empty list. Probably reasonable value
   for most people would be "img,script,link".</description>
@@ -1286,7 +1286,7 @@ SOFTWARE.
   <property>
     <name>parsefilter.naivebayes.trainfile</name>
     <value>naivebayes-train.txt</value>
-    <description>Set the name of the file to be used for Naive Bayes training. The format will be:
+    <description>Set the name of the file to be used for Naive Bayes training. The format will be: 
 Each line contains two tab separated parts
 There are two columns/parts:
 1. "1" or "0", "1" for relevant and "0" for irrelevant documents.
@@ -1299,15 +1299,15 @@ CAUTION: Set the parser.timeout to -1 or a bigger value than 30, when using this
   <property>
     <name>parsefilter.naivebayes.wordlist</name>
     <value>naivebayes-wordlist.txt</value>
-    <description>Put the name of the file you want to be used as a list of
+    <description>Put the name of the file you want to be used as a list of 
   important words to be matched in the url for the model filter. The format should be one word per line.
   </description>
   </property>
   <property>
     <name>parser.timeout</name>
     <value>30</value>
-    <description>Timeout in seconds for the parsing of a document, otherwise treats it as an exception and
-  moves on the the following documents. This parameter is applied to any Parser implementation.
+    <description>Timeout in seconds for the parsing of a document, otherwise treats it as an exception and 
+  moves on the the following documents. This parameter is applied to any Parser implementation. 
   Set to -1 to deactivate, bearing in mind that this could cause
   the parsing to crash because of a very long or corrupted document.
   </description>
@@ -1325,8 +1325,8 @@ CAUTION: Set the parser.timeout to -1 or a bigger value than 30, when using this
   <property>
     <name>parser.skip.truncated</name>
     <value>true</value>
-    <description>Boolean value for whether we should skip parsing for truncated documents. By default this
-  property is activated due to extremely high levels of CPU which parsing can sometimes take.
+    <description>Boolean value for whether we should skip parsing for truncated documents. By default this 
+  property is activated due to extremely high levels of CPU which parsing can sometimes take.  
   </description>
   </property>
   <property>
@@ -1365,7 +1365,7 @@ CAUTION: Set the parser.timeout to -1 or a bigger value than 30, when using this
   <property>
     <name>tika.extractor.boilerpipe.algorithm</name>
     <value>ArticleExtractor</value>
-    <description>
+    <description> 
   Which Boilerpipe algorithm to use. Valid values are: DefaultExtractor, ArticleExtractor
   or CanolaExtractor.
   </description>
@@ -1436,21 +1436,21 @@ CAUTION: Set the parser.timeout to -1 or a bigger value than 30, when using this
     <description>Max depth value from seed allowed by default.
   Can be overridden on a per-seed basis by specifying "_maxdepth_=VALUE"
   as a seed metadata. This plugin adds a "_depth_" metadatum to the pages
-  to track the distance from the seed it was found from.
+  to track the distance from the seed it was found from. 
   The depth is used to prioritise URLs in the generation step so that
   shallower pages are fetched first.
   </description>
   </property>
   <!-- scoring similarity properties
 Add scoring-similarity to the list of active plugins
- in the parameter 'plugin.includes' in order to use it.
-For more detailed information on the working of this filter
+ in the parameter 'plugin.includes' in order to use it. 
+For more detailed information on the working of this filter 
 visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
   <property>
     <name>scoring.similarity.model</name>
     <value>cosine</value>
     <description>The type of similarity metric to use. Eg - cosine (which is, currently, the only available model).
-      Please make sure to set the model specific properties for the scoring to function properly.
+      Please make sure to set the model specific properties for the scoring to function properly. 
       Description of these properties can be found on the wiki.
     </description>
   </property>
@@ -1464,14 +1464,14 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
   <property>
     <name>cosine.goldstandard.file</name>
     <value>goldstandard.txt</value>
-    <description>Path to the gold standard file which contains all the relevant text and terms,
+    <description>Path to the gold standard file which contains all the relevant text and terms, 
       pertaining to the domain.
     </description>
   </property>
   <property>
     <name>scoring.similarity.stopword.file</name>
     <value>stopwords.txt</value>
-    <description>Name of the stopword text file. The user can specify a custom list of stop words
+    <description>Name of the stopword text file. The user can specify a custom list of stop words 
       in a text file. Each new stopword should be on a new line.
     </description>
   </property>
@@ -1554,11 +1554,11 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>index.static</name>
     <value/>
     <description>
-  Used by plugin index-static to adds fields with static data at indexing time.
+  Used by plugin index-static to adds fields with static data at indexing time. 
   You can specify a comma-separated list of fieldname:fieldcontent per Nutch job.
   Each fieldcontent can have multiple values separated by space, e.g.,
     field1:value1.1 value1.2 value1.3,field2:value2.1 value2.2 ...
-  It can be useful when collections can't be created by URL patterns,
+  It can be useful when collections can't be created by URL patterns, 
   like in subcollection, but on a job-basis.
   </description>
   </property>
@@ -1593,14 +1593,14 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <description>
   Comma-separated list of keys to be taken from the parse metadata to generate fields.
   Can be used e.g. for 'description' or 'keywords' provided that these values are generated
-  by a parser (see parse-metatags plugin)
+  by a parser (see parse-metatags plugin)  
   </description>
   </property>
   <property>
     <name>index.content.md</name>
     <value/>
     <description>
-   Comma-separated list of keys to be taken from the content metadata to generate fields.
+   Comma-separated list of keys to be taken from the content metadata to generate fields. 
   </description>
   </property>
   <property>
@@ -1608,7 +1608,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <value/>
     <description>
      Comma-separated list of keys to be taken from the crawldb metadata to generate fields.
-     Can be used to index values propagated from the seeds with the plugin urlmeta
+     Can be used to index values propagated from the seeds with the plugin urlmeta 
   </description>
   </property>
   <property>
@@ -1625,9 +1625,9 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <value>insightsService</value>
     <description>
   A string representing the information source to be used for GeoIP information
-  association. Either enter 'cityDatabase', 'connectionTypeDatabase',
-  'domainDatabase', 'ispDatabase' or 'insightsService'. If you wish to use any one of the
-  Database options, you should make one of GeoIP2-City.mmdb, GeoIP2-Connection-Type.mmdb,
+  association. Either enter 'cityDatabase', 'connectionTypeDatabase', 
+  'domainDatabase', 'ispDatabase' or 'insightsService'. If you wish to use any one of the 
+  Database options, you should make one of GeoIP2-City.mmdb, GeoIP2-Connection-Type.mmdb, 
   GeoIP2-Domain.mmdb or GeoIP2-ISP.mmdb files respectively available on the classpath and
   available at runtime.
   </description>
@@ -1668,8 +1668,8 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <value>description,keywords</value>
     <description> Names of the metatags to extract, separated by ','.
   Use '*' to extract all metatags. Prefixes the names with 'metatag.'
-  in the parse-metadata. For instance to index description and keywords,
-  you need to activate the plugin index-metadata and set the value of the
+  in the parse-metadata. For instance to index description and keywords, 
+  you need to activate the plugin index-metadata and set the value of the 
   parameter 'index.parse.md' to 'metatag.description,metatag.keywords'.
   </description>
   </property>
@@ -1747,7 +1747,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
   <property>
     <name>mapreduce.fileoutputcommitter.marksuccessfuljobs</name>
     <value>false</value>
-    <description>Hadoop &gt;= 0.21 generates SUCCESS files in the output which can crash
+    <description>Hadoop &gt;= 0.21 generates SUCCESS files in the output which can crash 
   the readers. This should not be an issue once Nutch is ported to the new MapReduce API
   but for now this parameter should prevent such cases.
   </description>
@@ -1759,7 +1759,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <description>
     Specifies the SolrServer implementation to use. This is a string value
     of one of the following 'cloud', 'concurrent', 'http' or 'lb'.
-    The values represent CloudSolrServer, ConcurrentUpdateSolrServer,
+    The values represent CloudSolrServer, ConcurrentUpdateSolrServer, 
     HttpSolrServer or LBHttpSolrServer respectively.
   </description>
   </property>
@@ -1775,7 +1775,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>solr.zookeeper.url</name>
     <value/>
     <description>
-      Defines the Zookeeper URL which is an essential setting to be used
+      Defines the Zookeeper URL which is an essential setting to be used 
       when using SolrCloud. This should be a fully qualified URL similar to
       the property provided within 'solr.server.url' above.
   </description>
@@ -1785,7 +1785,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <value/>
     <description>
       A comma-separated value representing the Solr servers to be used when
-      initiating LBHttpSolrServer as the SolrServer implementation.
+      initiating LBHttpSolrServer as the SolrServer implementation. 
   </description>
   </property>
   <property>
@@ -1809,7 +1809,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>solr.commit.index</name>
     <value>true</value>
     <description>
-  When closing the indexer, trigger a commit to the Solr server.
+  When closing the indexer, trigger a commit to the Solr server. 
   </description>
   </property>
   <property>
@@ -2022,7 +2022,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>elastic.rest.index.separator</name>
     <value>_</value>
     <description>
-        Default value is `_`. Is used only if `elastic.rest.index.languages` is defined to build the index name (i.e. ${elastic.rest.index}${elastic.rest.index.separator}${lang}).
+        Default value is `_`. Is used only if `elastic.rest.index.languages` is defined to build the index name (i.e. ${elastic.rest.index}${elastic.rest.index.separator}${lang}). 
     </description>
   </property>
   <property>
@@ -2111,7 +2111,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>page.load.delay</name>
     <value>3</value>
     <description>
-    The delay in seconds to use when loading a page with htmlunit or selenium.
+    The delay in seconds to use when loading a page with htmlunit or selenium. 
   </description>
   </property>
   <property>
@@ -2142,7 +2142,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <value>true</value>
     <description>
     A Boolean value representing if javascript should
-    be enabled or disabled when using htmlunit. The default value is enabled.
+    be enabled or disabled when using htmlunit. The default value is enabled. 
   </description>
   </property>
   <property>
@@ -2150,7 +2150,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <value>3500</value>
     <description>
     The timeout in milliseconds when loading javascript with lib-htmlunit. This
-    setting is used by protocol-htmlunit since they depending on
+    setting is used by protocol-htmlunit since they depending on 
     lib-htmlunit for fetching.
   </description>
   </property>
@@ -2167,7 +2167,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>selenium.driver</name>
     <value>firefox</value>
     <description>
-    A String value representing the flavour of Selenium
+    A String value representing the flavour of Selenium 
     WebDriver() to use. Currently the following options
     exist - 'firefox', 'chrome', 'safari', 'opera', 'phantomjs' and 'remote'.
     If 'remote' is used it is essential to also set correct properties for
@@ -2198,38 +2198,38 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
   <property>
     <name>selenium.grid.driver</name>
     <value>firefox</value>
-    <description>A String value representing the flavour of Selenium
+    <description>A String value representing the flavour of Selenium 
     WebDriver() used on the selenium grid. Currently the following options
     exist - 'firefox', 'phantomjs' </description>
   </property>
   <property>
     <name>selenium.grid.binary</name>
     <value/>
-    <description>A String value representing the path to the browser binary
+    <description>A String value representing the path to the browser binary 
     location for each node
  </description>
   </property>
-  <!-- selenium firefox configuration;
+  <!-- selenium firefox configuration; 
      applies to protocol-selenium and protocol-interactiveselenium plugins -->
   <property>
     <name>selenium.firefox.allowed.hosts</name>
     <value>localhost</value>
     <description>A String value representing the allowed hosts preference
-  according to the operating system hosts file (Example - /etc/hosts in Unix).
+  according to the operating system hosts file (Example - /etc/hosts in Unix). 
   Currently this option exist for - 'firefox' </description>
   </property>
   <property>
     <name>selenium.firefox.binary.timeout</name>
     <value>45</value>
     <description>A Long value representing the timeout value
-  for firefox to be available for command execution. The value is in seconds.
+  for firefox to be available for command execution. The value is in seconds. 
   Currently this option exist for - 'firefox' </description>
   </property>
   <property>
     <name>selenium.firefox.enable.flash</name>
     <value>false</value>
     <description>A Boolean value representing if flash should
-  be enabled or disabled. The default value is disabled.
+  be enabled or disabled. The default value is disabled. 
   Currently this option exist for - 'firefox' </description>
   </property>
   <property>
@@ -2240,14 +2240,14 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
   Other options are:
   1: Load all images, regardless of origin
   2: Block all images
-  3: Prevent third-party images from loading
+  3: Prevent third-party images from loading 
   Currently this option exist for - 'firefox' </description>
   </property>
   <property>
     <name>selenium.firefox.load.stylesheet</name>
     <value>1</value>
     <description>An Integer value representing the restriction on
-  loading stylesheet. The default value is no restriction i.e. load
+  loading stylesheet. The default value is no restriction i.e. load 
   all stylesheet.
   Other options are:
   1: Load all stylesheet
@@ -2276,7 +2276,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>store.http.headers</name>
     <value>false</value>
     <description>
-    Store the raw headers received by Nutch from the server, required to use the
+    Store the raw headers received by Nutch from the server, required to use the 
     CommonCrawlDataDumper tool for the WARC format.
   </description>
   </property>
@@ -2285,7 +2285,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>index.links.outlinks.host.ignore</name>
     <value>false</value>
     <description>
-    Ignore outlinks that point out to the same host as the URL being indexed.
+    Ignore outlinks that point out to the same host as the URL being indexed. 
     By default all outlinks are indexed. If db.ignore.internal.links is true (default
     value), this setting does nothing since the internal links are already
     ignored.
@@ -2295,7 +2295,7 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     <name>index.links.inlinks.host.ignore</name>
     <value>false</value>
     <description>
-    Ignore inlinks coming from the same host as the URL being indexed. By default
+    Ignore inlinks coming from the same host as the URL being indexed. By default 
     all inlinks are indexed. If db.ignore.internal.links is true (default
     value), this setting does nothing since the internal links are already
     ignored.
@@ -2405,15 +2405,15 @@ visit https://wiki.apache.org/nutch/SimilarityScoringFilter-->
     field aggregations. Host metadata will contain fields for each percentile.
   </description>
   </property>
-  <!-- publisher properties
-      Do not forget to add the name of your publisher implementation
+  <!-- publisher properties 
+      Do not forget to add the name of your publisher implementation 
       in plugin.includes ex- publish-rabbitmq -->
   <property>
     <name>publisher.queue.type</name>
     <value/>
     <description>
-    Choose the type of Queue being used (ex - RabbitMQ, ActiveMq, Kafka, etc).
-    Currently there exists an implemtation for RabbitMQ producer.
+    Choose the type of Queue being used (ex - RabbitMQ, ActiveMq, Kafka, etc). 
+    Currently there exists an implemtation for RabbitMQ producer. 
   </description>
   </property>
   <property>
